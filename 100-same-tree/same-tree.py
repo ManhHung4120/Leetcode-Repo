@@ -12,21 +12,10 @@ class Solution:
             return False
         if p.val != q.val:
             return False
-        p_tree = self.travelTree(p, [])
-        q_tree = self.travelTree(q, [])
-        if p_tree == q_tree:
-            return True
-        return False
-    def travelTree(self, node, result = []):
-        if node is None:
-            result.append("")
-            return result
-
-        if node:
-            result.append(node.val)
-            self.travelTree(node.left, result)
-            self.travelTree(node.right, result)
-
-        return result
+        if not self.isSameTree(p.left, q.left):
+            return False
+        if not self.isSameTree(p.right, q.right):
+            return False
+        return True
 
         
